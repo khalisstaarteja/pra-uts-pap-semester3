@@ -1,0 +1,471 @@
+* {
+	box-sizing: border-box; /* agar semua ukuran pas, tidak melebihi layar */
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: clip; /* Agar tidak ada ruang kosong dan tidak bisa geser kanan kiri */
+}
+  
+body {
+    font-family: Arial, Helvetica, sans-serif;
+	background: #f4f7fb;
+	color: #222;
+	line-height: 1.5;
+	/*agar footer ga ngambang */
+	display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    min-height: 100vh;
+}
+
+h1 {
+	font-size: 1.3rem;
+}
+
+h2 {
+	font-size: 1rem;
+	border-bottom:2px solid #2563eb;
+}
+
+h3 {
+	font-size: .8rem;
+}
+
+h4, label {
+	font-size: .85rem;
+}
+
+p, a, .dropbtn, table {
+	font-size: .75rem;
+	text-decoration: none;
+}
+
+a {
+	color:#1d4ed8;
+}
+
+footer ul, .sidebar ul {
+	list-style: none; /* hilangkan titik */
+    padding: 0; /* hilangkan jorokan kiri */
+    margin: 0;
+}
+
+header {
+	/* tinggi mengikuti isi */
+	background-color: #2563eb;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	padding: 4px 20px;
+	gap: 12px;
+	align-items: center; /* agar tidak nempel diatas, tapi ditengah2 */
+	background-color: #14213d;
+	color:#fff;
+}
+
+header .logo img {
+	height: 60px;
+	width: 100px;
+	object-fit: cover;
+	display: block; /*mengubah img jadi elemen kotak biasa */
+}
+
+header .title {
+	text-align: right;
+}
+
+header .title p {
+	color: #c7d2e5;
+}
+
+nav {
+	display: flex; /*bikin menu sejajar kesamping */
+	justify-content: center;
+	flex-wrap: nowrap; /* semua item dipaksa tetap satu baris */
+	background:#2563eb;
+}
+
+nav a:hover {
+	background:#1d4ed8;
+}
+
+nav a, .dropbtn {
+	padding: 12px 24px;
+	color: #fff;
+	font-weight: bold;
+	line-height: 1.5;
+}
+
+nav .dropdown {
+    position: relative; /* posisi dropwdown mengikuti navbaar */
+    display: inline-block; /* agar button dropdown sejajar dengan link lain */
+    background: transparent;
+}
+
+nav .dropdown button{
+   background: transparent;
+   border: none;
+   color: #fff;
+   white-space: nowrap;
+   
+}
+
+nav .dropdown-content {
+    display: none;  
+    position: absolute;
+    top: 100%; /* nempel persis dibawah tombol dropdown */
+    left: 0; /* ikut rata kiri sama tombol */
+    min-width: 160px;
+	background: #14213d; 
+}
+
+nav .dropdown-content a{
+    display: block;
+    padding: 10px;
+}
+
+nav .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+.content, .blog-content, .order-content {
+	width: 100%;
+	max-width: 1100px;
+	margin: 20px auto;
+	padding: 0 20px;
+}
+
+.content {
+	display: grid;
+	grid-template-columns: 3fr 1fr;
+	gap: 50px;
+}
+
+.gallery {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 24px;
+}
+
+.gallery .card {
+	background: #2563eb;
+	overflow: hidden;
+	border: transparent;
+	border-radius: 8px;
+	background: #fff;
+	width: 100%; /* agar responsive */
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.gallery .card .image {
+	position: relative; /* supaya overlay menempel ke kotak gambar */
+	width: 100%;
+	height: 200px;
+	align-items: center;
+	background:#2563eb;
+}
+
+.gallery .card .image img{
+	width: 100%;
+	height: 100%;
+	display: block;
+	object-fit: cover;
+	transition:opacity .4s, transform .4s;
+}
+
+.gallery .card .image img:hover{
+	transform: scale(1.08);
+}
+
+.gallery .card .text {
+	padding: 12px;
+}
+
+.overlay {
+	position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.3); /* agak transparent */
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s;
+}
+
+.overlay:hover {
+    opacity: 1;
+}
+
+.box, .box-about {
+	background: #fff;
+	padding: 16px 24px;
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+	margin: 20px auto;
+}
+
+.box h3 {
+	border-bottom:2px solid #2563eb;
+}
+
+.box-about {
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	gap: 16px;
+}
+
+.box-about img {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	border: transparent;
+	border-radius: 8px;
+	background: #fff;
+	width: 100%; /* agar responsive */
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.box-about .text {
+	text-align: justify;
+}
+.blog-text {
+	background: #fff;
+	padding: 16px 24px;
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.blog-text a {
+	text-decoration: underline;
+}
+
+.order-content {
+	display: grid;
+	grid-template-columns: 2fr 2fr;
+	gap: 16px;
+}
+
+.form-order {
+	background: #fff;
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+	padding: 20px 24px;
+}
+
+.form-order label{
+	display: block; /*agar label form sebaris masing-masing */
+	font-weight: bold;
+}
+
+.form-order input, .form-order select, .form-order textarea {
+	width: 100%;
+	padding: 8px;
+	display: inline-block;
+	border: 1px solid #7890a5;
+	border-radius: 4px;
+	margin-bottom: 16px;
+	transition: 0.2s;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.form-order input[type="radio"], .form-order input[type="checkbox"] {
+	width: auto;
+}
+
+.form-order input:focus, .form-order select:focus, .form-order textarea:focus {
+    outline: none;
+    border-color: #7890a5;
+    margin-left: 4px;
+}
+
+.form-order .pilihan {
+	font-weight: normal;
+}
+
+.form-order .button-container {
+	text-align: right;
+}
+
+.form-order .button-container button {
+	border-radius: 4px;
+	border: transparent;
+	padding: 8px;
+	margin: 4px;
+}
+
+.form-order .button-container button.submit {
+	background: #14213d;
+	color: #fff;
+}
+
+.form-order .button-container button.reset {
+	background: transparent;
+	border: 1px solid #cc0000;
+	color: #cc0000;
+}
+
+.form-order .button-container .submit:hover {
+	background:#2563eb;
+}
+
+.form-order .button-container .reset:hover {
+	background: #ffe6e6;
+}
+
+table {
+	width: 100%;
+	border: 1px solid #7890a5;
+	border-collapse: separate;
+	border-spacing: 0;
+	border-radius: 10px;
+	text-align: center;
+	overflow: hidden;
+}
+
+.table-paket, .table-sewa {
+	overflow-x: auto;
+}
+
+tr, td, th{
+	padding: 12px 8px; 
+	height: 36px;
+    border: 1px solid #8a8a8a;
+	text-align: center;
+}
+
+th, table .row {
+	background: #14213d;
+	color: #fff;
+}
+
+table .kategori {
+	background: #e6f7ff;
+	color: #2d3453;
+}
+
+table .jam-snorkeling {
+	background: #f7e6ff;
+}
+
+table .jam-diving {
+	background: #ffe6e6;
+}
+
+table .jam-panorama {
+	background: #ffffe6;
+}
+
+tbody tr:hover {
+    background: #e6e6ff;
+}
+
+tbody tr:nth-child(2n+1) {
+    background: #e6ffff;
+}
+
+tbody tr:nth-child(2n+1):hover {
+    background: #e6e6ff;
+}
+
+.popup-content {
+	display: none; /* disembunyikan dulu */
+	position: fixed; /* menempel di layar, tidak ikut scroll */
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.6); /* latar gelap transparan */
+	align-items: center;  
+	justify-content: center;
+}
+
+.popup-content:target {
+	display: flex; /* muncul saat dituju */
+}
+
+.popup-box {
+	background: #fff;
+	padding: 24px;
+	border-radius: 10px;
+	width: 90%;
+	max-width: 400px;
+	text-align: center;
+	position: relative;
+}
+
+.popup-box img {
+	width: 150px;
+	height: 150px;
+	border: 2px solid #2563eb;
+	border-radius: 50%;
+}
+
+.popup-box table {
+	padding: 16px 24px;
+	margin: 0 auto;
+	border-collapse: collapse;
+}
+
+.popup-box table td, th{
+	padding: 0px 24px;
+	border-bottom: 1px solid #222;
+	text-align: left;
+}
+
+.popup-box table td {
+	color: #333;
+}
+
+.close {
+	position: absolute;
+	top: 8px;
+	right: 14px;
+	font-size: 1.4rem;
+	color: #222;
+}
+	
+footer {
+	background:	#0f1a33;
+	color:	#c7d2e5;
+	margin-bottom: 0;
+}
+
+.footer-top {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 16px;
+	padding: 16px 24px;
+	width: 100%;
+}
+
+.footer-top a {
+	color:	#c7d2e5;
+}
+
+.footer-bottom {
+	padding: 16px 0;
+}
+
+.footer-bottom p {
+	border-top: 1px solid #243357;
+	text-align: center;
+	margin: 0; /* agar footer bottom ga ada gap kosong dibawahnya */
+	padding-top: 16px;
+}
+
+/* seukuran iphone 16 pro max atau split screen desktop paling kecil */
+@media(max-width:768px){
+	.content, .order-content, .box-about {
+		grid-template-columns: minmax(0, 1fr);
+	}
+	.gallery{
+	  grid-template-columns:repeat(1,1fr);
+	}
+	
+	
+	.footer-top{
+		grid-template-columns: 1fr;
+		width: 400px;
+	}
+	
+}
